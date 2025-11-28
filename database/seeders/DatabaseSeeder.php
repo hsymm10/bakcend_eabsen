@@ -36,7 +36,7 @@ class DatabaseSeeder extends Seeder
             ],
             [
                 'name' => 'Fanny Indriyani',
-                'email' => 'fannycantik@gmail.com',
+                'email' => 'fanny@gmail',
                 'password' => bcrypt('fanny123'),
                 'roles' => ['walas', 'guru_piket'],
             ],
@@ -72,7 +72,7 @@ class DatabaseSeeder extends Seeder
             ],
             [
                 'name' => 'Miftahul Zannah',
-                'email' => 'miftahcayang@gmail.com',
+                'email' => 'miftah@gmail.com',
                 'password' => bcrypt('miftah123'),
                 'roles' => ['walas', 'guru_piket'],
             ],
