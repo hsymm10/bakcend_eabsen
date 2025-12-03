@@ -2,18 +2,13 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Student extends Model
 {
-    protected $fillable = [
-        'nis',
-        'nama',
-        'kelas',
-    ];
+    use HasFactory;
 
-    public function scopeByKelas($query, $kelas)
-    {
-        return $query->where('kelas', $kelas);
-    }
+    protected $fillable = ['nis', 'nama', 'kelas'];
 }
+

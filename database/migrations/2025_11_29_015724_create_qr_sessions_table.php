@@ -11,12 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('students', function (Blueprint $table) {
+        Schema::create('qr_sessions', function (Blueprint $table) {
             $table->id();
-            $table->string('kelas'); // x-rpl, xi-rpl, dll
-            $table->string('nis')->unique(); // 12 digit NIS
-            $table->string('nama');
-            $table->string('jurusan');
+            $table->string('code')->unique();
+            $table->text('qr_text');
+            $table->integer('size')->default(300);
+            $table->timestamp('expiry_time');
+            $table->boolean('is_active')->default(true);
+            $table->foreignId('generated_by')->constrained('users');
             $table->timestamps();
         });
     }
@@ -26,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('students');
+        Schema::dropIfExists('qr_sessions');
     }
 };

@@ -13,11 +13,13 @@ return new class extends Migration
     {
         Schema::create('attendance_scans', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('session_id')->constrained('attendance_sessions')->onDelete('cascade');
-            $table->string('kelas');
+            $table->unsignedBigInteger('session_id')->nullable();
+            $table->string('code')->nullable();
             $table->string('nis');
+            $table->string('kelas');
             $table->string('nama');
             $table->enum('status', ['Hadir', 'Sakit', 'Izin', 'Alpha'])->default('Hadir');
+            $table->timestamp('waktu_absen');
             $table->timestamps();
 
             $table->index('session_id', 'nis');

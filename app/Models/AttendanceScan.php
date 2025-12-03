@@ -12,5 +12,10 @@ class AttendanceScan extends Model
         'nama',
         'kelas',
         'status',
+        'waktu_absen',
+    ];
+
+    protected $casts = [
+        'waktu_absen' => 'datetime'
     ];
 }
